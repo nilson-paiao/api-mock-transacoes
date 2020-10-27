@@ -17,7 +17,7 @@ public class HandlerNotFoundException implements ExceptionMapper<NotFoundExcepti
 
     @Override
     public Response toResponse(NotFoundException notFoundException){
-        return GerenciadorResponse.geraResponseErro(Response.Status.NOT_FOUND, "Requisição inválida");
+        return GerenciadorResponse.geraResponseErro(Response.Status.NOT_FOUND, "Requisicao invalida");
     }
 
 }

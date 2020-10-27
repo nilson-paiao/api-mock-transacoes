@@ -17,10 +17,10 @@ class ServicoTransacoesTest {
         Map<Integer, List<Transacao>> transacoesPorMes = carregaTransacoesPorMes();
         for (int mes = 1; mes <= 12; mes++) {
             List<Transacao> transacoes = transacoesPorMes.get(mes);
-            assertFalse(transacoes.isEmpty(), "Cada mês deve ter ao menos uma transação");
+            assertFalse(transacoes.isEmpty(), "Cada mes deve ter ao menos uma transacao");
         }
 
-        assertEquals(12, transacoesPorMes.size(), "Deve existir transações para todos os meses do ano");
+        assertEquals(12, transacoesPorMes.size(), "Deve existir transacoes para todos os meses do ano");
     }
 
     @Test
@@ -28,7 +28,7 @@ class ServicoTransacoesTest {
         Map<Integer, List<Transacao>> transacoesPorMes = carregaTransacoesPorMes();
         for (int mes = 1; mes <= 12; mes++) {
             List<Transacao> transacoes = consumirServico(mes);
-            assertEquals(transacoesPorMes.get(mes), transacoes, "A lista de transações não pode mudar a cada requisição dado o mesmo conjunto de dados");
+            assertEquals(transacoesPorMes.get(mes), transacoes, "A lista de transacoes nao pode mudar a cada requisicao dado o mesmo conjunto de dados");
         }
     }
 
@@ -41,7 +41,7 @@ class ServicoTransacoesTest {
             transacoesQuantidadesDiferente.add(transacoes.size());
         }
 
-        assertTrue(transacoesQuantidadesDiferente.size() > 1, "A quantidade de transações deve ser variável entre os meses");
+        assertTrue(transacoesQuantidadesDiferente.size() > 1, "A quantidade de transacoes deve ser variavel entre os meses");
     }
 
     @Test
@@ -56,7 +56,7 @@ class ServicoTransacoesTest {
             }
         }
 
-        assertTrue(quantidadeMesesComTransacoesDuplicadas >= 3, "Deve haver ao menos 3 meses com transações duplicadas por ano");
+        assertTrue(quantidadeMesesComTransacoesDuplicadas >= 3, "Deve haver ao menos 3 meses com transacoes duplicadas por ano");
     }
 
     private boolean mesPossuiDuplicacaoDeTransacao(List<Transacao> transacoes) {
@@ -92,7 +92,7 @@ class ServicoTransacoesTest {
 
     private void validaMarcacaoDeDuplicacao(Map<String, List<Transacao>> transacoesAgrupadasPorDescricaoDataValor) {
         for (List<Transacao> transacoes : transacoesAgrupadasPorDescricaoDataValor.values()) {
-            assertEquals(1, quantidadeTransacoesNaoMarcadasComoDuplicadas(transacoes), "Dado as mesmas informacoes de descricao, data e valor apenas uma transação pode estar marcada como não duplicada");
+            assertEquals(1, quantidadeTransacoesNaoMarcadasComoDuplicadas(transacoes), "Dado as mesmas informacoes de descricao, data e valor apenas uma transacao pode estar marcada como nao duplicada");
         }
     }
 
@@ -198,24 +198,24 @@ class ServicoTransacoesTest {
     private String validaParametroMesMensagemEsperada() {
         StringBuilder mensagemErroEsperada = new StringBuilder();
         mensagemErroEsperada.append("Ocorreu um erro: 400 - Bad Request").append(System.lineSeparator());
-        mensagemErroEsperada.append("O parâmetro \"mes\" deve ser um número entre 1 e 12!").append(System.lineSeparator());
+        mensagemErroEsperada.append("O parametro \"mes\" deve ser um numero entre 1 e 12!").append(System.lineSeparator());
         mensagemErroEsperada.append("====================").append(System.lineSeparator());
-        mensagemErroEsperada.append("Serviços disponíveis:").append(System.lineSeparator());
-        mensagemErroEsperada.append("Busca Transações: [GET] /<id>/transacoes/<ano>/<mes>").append(System.lineSeparator());
+        mensagemErroEsperada.append("Servicos disponiveis:").append(System.lineSeparator());
+        mensagemErroEsperada.append("Busca Transacoes: [GET] /<id>/transacoes/<ano>/<mes>").append(System.lineSeparator());
         mensagemErroEsperada.append("====================").append(System.lineSeparator());
-        mensagemErroEsperada.append("Para maiores informações acesse: https://github.com/nilson-paiao/api-mock-transacoes");
+        mensagemErroEsperada.append("Para maiores informacoes acesse: https://github.com/nilson-paiao/api-mock-transacoes");
         return mensagemErroEsperada.toString();
     }
 
     private String validaParametroIdMensagemEsperada() {
         StringBuilder mensagemErroEsperada = new StringBuilder();
         mensagemErroEsperada.append("Ocorreu um erro: 400 - Bad Request").append(System.lineSeparator());
-        mensagemErroEsperada.append("O parâmetro \"id\" deve ser um número entre 1.000 e 100.000.000!").append(System.lineSeparator());
+        mensagemErroEsperada.append("O parametro \"id\" deve ser um numero entre 1.000 e 100.000.000!").append(System.lineSeparator());
         mensagemErroEsperada.append("====================").append(System.lineSeparator());
-        mensagemErroEsperada.append("Serviços disponíveis:").append(System.lineSeparator());
-        mensagemErroEsperada.append("Busca Transações: [GET] /<id>/transacoes/<ano>/<mes>").append(System.lineSeparator());
+        mensagemErroEsperada.append("Servicos disponiveis:").append(System.lineSeparator());
+        mensagemErroEsperada.append("Busca Transacoes: [GET] /<id>/transacoes/<ano>/<mes>").append(System.lineSeparator());
         mensagemErroEsperada.append("====================").append(System.lineSeparator());
-        mensagemErroEsperada.append("Para maiores informações acesse: https://github.com/nilson-paiao/api-mock-transacoes");
+        mensagemErroEsperada.append("Para maiores informacoes acesse: https://github.com/nilson-paiao/api-mock-transacoes");
         return mensagemErroEsperada.toString();
     }
 }

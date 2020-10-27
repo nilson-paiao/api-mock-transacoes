@@ -15,21 +15,21 @@ import java.util.List;
 @Path("/{id}/transacoes")
 public class ServicoTransacoes {
 
-    public static final String SERVICO_BUSCA_TRANSACOES_URL = "Busca Transações: [GET] /<id>/transacoes/<ano>/<mes>";
+    public static final String SERVICO_BUSCA_TRANSACOES_URL = "Busca Transacoes: [GET] /<id>/transacoes/<ano>/<mes>";
 
     @GET
     @Path("{ano}/{mes}")
-    @Produces(MediaType.APPLICATION_JSON + "; charset=ISO-8859-1")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response buscaTransacoes(@PathParam("id") int usuarioId, @PathParam("ano") int ano, @PathParam("mes") int mes) {
 
         boolean idEstaInvalido = usuarioId < 1000 || usuarioId > 100000000;
         if (idEstaInvalido) {
-            return GerenciadorResponse.geraResponseErro(Response.Status.BAD_REQUEST, "O parâmetro \"id\" deve ser um número entre 1.000 e 100.000.000!");
+            return GerenciadorResponse.geraResponseErro(Response.Status.BAD_REQUEST, "O parametro \"id\" deve ser um numero entre 1.000 e 100.000.000!");
         }
 
         boolean mesEstaInvalido = mes < 1 || mes > 12;
         if (mesEstaInvalido) {
-            return GerenciadorResponse.geraResponseErro(Response.Status.BAD_REQUEST, "O parâmetro \"mes\" deve ser um número entre 1 e 12!");
+            return GerenciadorResponse.geraResponseErro(Response.Status.BAD_REQUEST, "O parametro \"mes\" deve ser um numero entre 1 e 12!");
         }
 
         Requisicao requisicao = new Requisicao(usuarioId, ano, mes);

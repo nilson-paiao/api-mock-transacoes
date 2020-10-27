@@ -1,6 +1,5 @@
 package gerenciador;
 
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.text.MessageFormat;
 
@@ -18,7 +17,6 @@ public class GerenciadorResponse {
         return Response.
                 status(status).
                 entity(formataMensagemErro(status, mensagemErro)).
-                type(MediaType.TEXT_PLAIN + "; charset=ISO-8859-1").
                 build();
     }
 

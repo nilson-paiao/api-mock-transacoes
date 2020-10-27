@@ -12,14 +12,14 @@ public class GerenciadorServicos {
     private static String inicializaMensagemInformacoesServicos() {
         StringBuilder mensagem = new StringBuilder();
         mensagem.append("====================").append(System.lineSeparator());
-        mensagem.append("Serviços disponíveis:").append(System.lineSeparator());
+        mensagem.append("Servicos disponiveis:").append(System.lineSeparator());
 
         for (String servicoUrl : getServicosDisponiveisUrl()) {
             mensagem.append(servicoUrl).append(System.lineSeparator());
         }
 
         mensagem.append("====================").append(System.lineSeparator());
-        mensagem.append("Para maiores informações acesse: https://github.com/nilson-paiao/api-mock-transacoes");
+        mensagem.append("Para maiores informacoes acesse: https://github.com/nilson-paiao/api-mock-transacoes");
 
         return mensagem.toString();
     }

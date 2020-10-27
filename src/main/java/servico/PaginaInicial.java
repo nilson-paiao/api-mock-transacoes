@@ -13,9 +13,9 @@ import javax.ws.rs.core.Response;
 public class PaginaInicial {
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN + "; charset=ISO-8859-1")
+    @Produces(MediaType.TEXT_PLAIN)
     public Response buscaTransacoes() {
-        String mensagemBoasVindas = "Bem vindo à API mock de transações! " + System.lineSeparator() + GerenciadorServicos.MENSAGEM_INFOMACOES_SERVICOS;
+        String mensagemBoasVindas = "Bem vindo a API mock de transacoes! " + System.lineSeparator() + GerenciadorServicos.MENSAGEM_INFOMACOES_SERVICOS;
         return GerenciadorResponse.geraResponseSucesso(mensagemBoasVindas);
     }
 
